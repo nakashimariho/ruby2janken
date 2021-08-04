@@ -1,5 +1,52 @@
 
 puts "じゃんけん..."
+
+def win
+    puts "あっち向いて〜"
+    puts "0(上)1(下)2(右)3(左)"
+    player_face = gets.to_i
+    puts "ホイ！"
+    
+    program_face = rand(4)
+    
+    fingers = ["上","下","右","左"]
+    
+    puts "-------------------"
+    puts "あなた:#{fingers[player_face]}"
+    puts "相手:#{fingers[program_face]}"
+    puts "-------------------"
+      if player_face == program_face
+       puts "あなたの勝ちです！"
+       return false
+     else
+       puts "もう一回！"
+       janken
+      end
+  end    
+  
+  def lose
+    puts "あっち向いて〜"
+    puts "0(上)1(下)2(右)3(左)"
+    player_face = gets.to_i
+    puts "ホイ！"
+    
+    program_face = rand(4)
+    
+    fingers = ["上","下","右","左"]
+    
+    puts "-------------------"
+    puts "あなた:#{fingers[player_face]}"
+    puts "相手:#{fingers[program_face]}"
+    puts "-------------------"
+     if player_face == program_face
+       puts "あなたの負けです。"
+      else
+       puts "もう一回！"
+       janken
+      end 
+    end
+
+
 def janken
   puts "-------------------"
   puts "0(グー)1(チョキ)2(パー)"
@@ -24,13 +71,11 @@ def janken
   elsif win
     puts "じゃんけんに勝ちました！"
     puts "-------------------"
-    @result = "win"
-    return false
+    win()
   elsif lose
     puts "じゃんけんに負けました。"
     puts "-------------------"
-    @result = "lose"
-    return false
+    lose()
   end
 end
 
@@ -40,48 +85,4 @@ while next_game do
   next_game = janken
 end
 
-  if @result == "win"
-    puts "あっち向いて〜"
-    puts "0(上)1(下)2(右)3(左)"
-    player_face = gets.to_i
-    puts "ホイ！"
-    
-    program_face = rand(4)
-    
-    fingers = ["上","下","右","左"]
-    
-    puts "-------------------"
-    puts "あなた:#{fingers[player_face]}"
-    puts "相手:#{fingers[program_face]}"
-    puts "-------------------"
-      if player_face == program_face
-       puts "あなたの勝ちです！"
-       return false
-     else 
-       puts "もう一回！"
-       janken
-      end 
-  end
-  
-  if @result == "lose"
-    puts "あっち向いて〜"
-    puts "0(上)1(下)2(右)3(左)"
-    player_face = gets.to_i
-    puts "ホイ！"
-    
-    program_face = rand(4)
-    
-    fingers = ["上","下","右","左"]
-    
-    puts "-------------------"
-    puts "あなた:#{fingers[player_face]}"
-    puts "相手:#{fingers[program_face]}"
-    puts "-------------------"
-     if player_face == program_face
-       puts "あなたの負けです。"
-       janken
-      else 
-       puts "もう一回！"
-       janken
-      end 
-  end
+
